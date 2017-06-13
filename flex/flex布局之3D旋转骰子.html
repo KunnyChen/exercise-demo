@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex布局之3D旋转骰子</title>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        html, body {
+          height: 100%;
+        }
+        body
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: center;
+            flex-wrap: wrap;
+            align-content: center;
+            font-family: '微软雅黑','Open Sans', sans-serif;
+
+            background: linear-gradient(top, #222, #333);
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            -webkit-perspective: 900;
+            perspective: 900;
+        }
+        .box
+        {
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            position: absolute;
+            top:100px;
+            left: 300px;
+            transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px);
+            animation: dh_nav 50s infinite linear
+        }
+        @keyframes dh_nav {
+            0%,100% {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px);
+                -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px);
+            }
+            50% {
+                transform: rotateX(4800deg) rotateY(0deg) rotateZ(0deg) translateX(800px) translateY(0px) translateZ(0px);
+                -webkit-transform: rotateX(3600deg) rotateY(0deg) rotateZ(0deg) translateX(800px) translateY(0px) translateZ(0px);
+            }
+        }
+        .box > div
+        {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top:0px;
+            left: 0px;
+            font-size: 40px;
+            line-height: 100px;
+            text-align: center;
+            border: 1px solid #B9B7B7;
+            background: #e7e7e7;
+        }
+        .box .top
+        {
+            transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(50px);
+        }
+        .box .bottom
+         {
+            transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(50px);
+         }
+        .box .left
+        {
+            transform: rotateX(0deg) rotateY(-90deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(50px);
+        }
+        .box .right
+        {
+            transform: rotateX(0deg) rotateY(90deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(50px);
+        }
+        .box .qian
+        {
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(50px);
+        }
+        .box .hou
+        {
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(-50px);
+        }
+
+        .first-face {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+          .second-face {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .second-face .pip:nth-of-type(2) {
+            align-self: flex-end;
+          }
+
+          .third-face {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .third-face .pip:nth-of-type(2) {
+            align-self: center;
+          }
+
+          .third-face .pip:nth-of-type(3) {
+            align-self: flex-end;
+          }
+
+          .fourth-face, .sixth-face {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .fourth-face .column, .sixth-face .column {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          .fifth-face {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .fifth-face .column {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          .fifth-face .column:nth-of-type(2) {
+            justify-content: center;
+          }
+
+
+          [class$="face"] {
+            margin: 16px;
+            padding: 4px;
+
+            background-color: #e7e7e7;
+            width: 104px;
+            height: 104px;
+            object-fit: contain;
+
+            box-shadow:
+              inset 0 5px white,
+              inset 0 -5px #bbb,
+              inset 5px 0 #d7d7d7,
+              inset -5px 0 #d7d7d7;
+
+            border-radius: 10%;
+          }
+
+          .pip {
+            display: block;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin: 4px;
+
+            background-color: #333;
+            box-shadow: inset 0 3px #111, inset 0 -3px #555;
+          }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="first-face top">
+      <span class="pip"></span>
+    </div>
+    <div class="second-face bottom">
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+    <div class="third-face left">
+      <span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+    <div class="fourth-face right">
+      <div class="column">
+        <span class="pip"></span>
+        <span class="pip"></span>
+      </div>
+      <div class="column">
+        <span class="pip"></span>
+        <span class="pip"></span>
+      </div>
+    </div>
+    <div class="fifth-face qian">
+      <div class="column">
+        <span class="pip"></span>
+        <span class="pip"></span>
+      </div>
+      <div class="column">
+        <span class="pip"></span>
+      </div>
+      <div class="column">
+        <span class="pip"></span>
+        <span class="pip"></span>
+      </div>
+    </div>
+    <div class="sixth-face hou">
+      <div class="column">
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+      </div>
+      <div class="column">
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>
+      </div>
+    </div>
+</div>
+
+<h2>flex布局实例</h2>
+<!-- 01 -->
+<div class="first-face">
+  <span class="pip"></span>
+</div>
+<!-- 02 -->
+<div class="second-face">
+  <span class="pip"></span>
+  <span class="pip"></span>
+</div>
+<!-- 03 -->
+<div class="third-face">
+  <span class="pip"></span>
+  <span class="pip"></span>
+  <span class="pip"></span>
+</div>
+<!-- 04 -->
+<div class="fourth-face">
+  <div class="column">
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+  <div class="column">
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+</div>
+  <!-- 05 -->
+<div class="fifth-face">
+  <div class="column">
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+  <div class="column">
+    <span class="pip"></span>
+  </div>
+  <div class="column">
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+</div>
+<!-- 06 -->
+<div class="sixth-face">
+  <div class="column">
+    <span class="pip"></span>
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+  <div class="column">
+    <span class="pip"></span>
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+</div>
+</body>
+</html>
