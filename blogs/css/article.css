@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.article #banner{
+    height: 300px;
+}
+.article #banner .inner{
+    top: 30px;
+}
+.article h1{
+    border: none;
+}
+.article .content{
+    background: #fefefe;
+}
+.content-wrapper{
+    width: 1080px;
+    margin: 0 auto;
+}
+.article-info{
+    font-size: 14px;
+    color: #888;
+    padding: 15px 0;
+
+}
+article{
+    line-height: 2;
+    padding: 10px 0;
+}
