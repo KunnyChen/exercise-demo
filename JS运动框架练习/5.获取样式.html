@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #F00;
+            border:10px solid black;
+            font-size: 12px;
+            color: #fff;
+        }
+    </style>
+    <script>
+        window.onload =function(){
+            startMove();
+        };
+        function startMove(){
+            setInterval(function(){
+                var oDiv = document.getElementById('div1');
+                //alert(oDiv.offsetWidth);//204
+                oDiv.style.width = parseInt(getStyle(oDiv,'width'))- 1 +'px';
+                oDiv.style.fontSize = parseInt(getStyle(oDiv,'fontSize'))+1+'px';
+            },30)
+        }
+        function getStyle(obj,attr){//获取样式函数
+            if(obj.currentStyle){
+                //针对IE浏览器
+                return obj.currentStyle[attr];
+            }
+            else{
+//                针对火狐浏览器
+                return getComputedStyle(obj,false)[attr];
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1" >字</div>
+</body>
+</html>

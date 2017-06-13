@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js缓速度运动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: black;
+            position: relative;
+            left: -200px;
+            top: 0;
+        }
+        #div1 span{
+            width: 50px;
+            height: 50px;
+            background: red;
+            position: absolute;
+            left: 200px;
+            top: 75px;
+        }
+    </style>
+    <script>
+       // alert(Math.floor(3.98));//3,向下取整数
+        //alert(Math.ceil(3.45));//4,向上取整
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            oDiv.onmouseover =function(){
+                startMove(0);
+            };
+            oDiv.onmouseout=function(){
+                startMove(-200);
+            }
+        };
+        var timer = null;
+        function startMove(iTarget){
+            clearInterval(timer);
+            var oDiv = document.getElementById('div1');
+            timer = setInterval(function(){
+                var speed = (iTarget-oDiv.offsetLeft)/20;
+                speed = speed > 0 ?Math.ceil(speed):Math.floor(speed);
+                if (oDiv.offsetLeft==iTarget){
+                    clearInterval(timer);
+                }
+                else{
+                    oDiv.style.left = oDiv.offsetLeft+speed+'px';
+                }
+            },30)
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <span>share</span>
+</div>
+
+</body>
+</html>

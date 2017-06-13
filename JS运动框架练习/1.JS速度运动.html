@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js速度运动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: black;
+            position: relative;
+            left: -200px;
+            top: 0;
+        }
+        #div1 span{
+            width: 50px;
+            height: 50px;
+            background: red;
+            position: absolute;
+            left: 200px;
+            top: 75px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            oDiv.onmouseover =function(){
+                startMove(0);
+            };
+            oDiv.onmouseout=function(){
+                startMove(-200);
+            }
+        };
+        var timer = null;
+        function startMove(iTarget){
+            clearInterval(timer);
+            var oDiv = document.getElementById('div1');
+            timer = setInterval(function(){
+                var speed = 0;
+                if(oDiv.offsetLeft > iTarget){
+                    speed = -10;
+                }
+                else{
+                    speed = 10;
+                }
+                if (oDiv.offsetLeft==iTarget){
+                    clearInterval(timer);
+                }
+                else{
+                    oDiv.style.left = oDiv.offsetLeft+speed+'px';
+                }
+            },30)
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <span>share</span>
+</div>
+
+</body>
+</html>
