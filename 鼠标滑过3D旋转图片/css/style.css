@@ -2,7 +2,7 @@
 * @Author: KunnyChen
 * @Date:   2017-07-05 15:54:40
 * @Last Modified by:   KunnyChen
-* @Last Modified time: 2017-07-05 16:48:36
+* @Last Modified time: 2017-07-05 17:30:58
 */
 
 body {
@@ -71,4 +71,48 @@ img {
 }
 .box02:hover .contnet_02 {
     opacity: 1;
+}
+.box03 {
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 80px;
+    text-align: center;
+}
+.box03_img {
+    border: 2px solid #fff;
+    border-radius: 60px 0;
+    display: inline-block;
+    margin-top: -72px;
+    overflow: hidden;
+    transition: 0.3s;
+    width: 50%;
+}
+.box03_img >img {
+    transition: 0.3s;
+    border-radius: 60px 0;
+}
+.box03:hover .box03_img {
+    border-radius: 50%;
+    border: 2px solid #e13157;
+}
+.member-info {
+    line-height: 2em;
+    padding-bottom: 3em;
+}
+.box03 .social-touch {
+    background-color: #e13157;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    overflow: hidden;
+    padding: 5px 0 0;
+    width: 100%;
+    transition: 0.3s;
+}
+.box03:hover .social-touch {
+    padding: 6px 0;
+    height: 38px;
+    transition: 0.3s;
 }
