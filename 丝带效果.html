@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>丝带效果tag</title>
+    <style type="text/css">
+    body{
+        background: rgb(73, 74, 95);
+    }
+        .tag01 {
+            font-weight: normal;
+            position: relative;
+            background: #F4F9FA;
+            width: 50%;
+            color: #F8463F;
+            text-align: center;
+            padding: 10px 20px;
+            margin: 50px auto;
+            text-transform: uppercase;
+        }
+
+        .tag01:before,
+        .tag01:after {
+            content: "";
+            position: absolute;
+            display: block;
+            top: -6px;
+            border: 18px solid #DCF4F4;
+        }
+
+        .tag01:before {
+            left: -36px;
+            border-right-width: 18px;
+            border-left-color: transparent;
+        }
+
+        .tag01:after {
+            right: -36px;
+            border-left-width: 18px;
+            border-right-color: transparent;
+        }
+
+        .tag01 span:before,
+        .tag01 span:after {
+            content: "";
+            position: absolute;
+            display: block;
+            border-style: solid;
+            border-color: #A7CECC transparent transparent transparent;
+            top: -6px;
+            -webkit-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+
+        .tag01 span:before {
+            left: 0;
+            border-width: 6px 0 0 6px;
+        }
+
+        .tag01 span:after {
+            right: 0;
+            border-width: 6px 6px 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 01 -->
+    <div class="tag01">
+        <span>css丝带效果一</span>
+    </div>
+    <!-- 02 -->
+    <div class="tag02">
+        <span>丝带效果二</span>
+    </div>
+    <!-- 03 -->
+    <div class="tag03">
+        <span>丝带效果三</span>
+    </div>
+    <!-- 04 -->
+    <div class="tag04">
+        <span>丝带效果四</span>
+    </div>
+    <!-- 05 -->
+    <div class="tag05">
+        <span>丝带效果五</span>
+    </div>
+</body>
+
+</html>
