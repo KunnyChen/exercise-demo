@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+    // example 01
+    for (var i = 0; i < 5; i++) {
+        console.log(i); //直接输出0到4
+    }
+    // example 02
+    for (var i = 0; i < 5; i++) {
+        setTimeout(function() {
+            console.log(i); //一个 5，然后每隔一秒再输出一个 5，一共 5 个 5
+        }, 1000 * i);
+    }
+    // example 03  修改02后让其输出0到4
+    for (var i = 0; i < 5; i++) {
+        (function(i) {
+            setTimeout(function() {
+                console.log(i); //输出0到4
+            }, i * 1000);
+        })(i);
+    }
+    for (let i = 0; i < 5; i++) {
+        setTimeout(function() {
+            console.log(i); //输出0到4
+        }, i * 1000);
+    }
+    // example 04
+    for (var i = 0; i < 5; i++) {
+        (function() {
+            setTimeout(function() {
+                console.log(i); //内部其实没有对 i 保持引用，其实会变成输出 5，一个输出5次
+            }, i * 1000);
+        })(i);
+    }
+    // example 05   等价于setTimeout(undefined, ...);
+    for (var i = 0; i < 5; i++) {
+        setTimeout((function(i) {
+            console.log(i); //立马输出 0 到 4
+        })(i), i * 1000);
+    }
+    // example 06
+    setTimeout(function() {
+        console.log(1)
+    }, 0);
+    new Promise(function executor(resolve) {
+        console.log(2);
+        for (var i = 0; i < 10000; i++) {
+            i == 9999 && resolve();
+        }
+        console.log(3);
+    }).then(function() {
+        console.log(4);
+    });
+    console.log(5);
+    // 考察 JavaScript 的运行机制的。
+    // 首先先碰到一个 setTimeout，于是会先设置一个定时，在定时结束后将传递这个函数放到任务队列里面，因此开始肯定不会输出 1 。
+    // 然后是一个 Promise，里面的函数是直接执行的，因此应该直接输出 2 3 。
+    // 然后，Promise 的 then 应当会放到当前 tick 的最后，但是还是在当前 tick 中。
+    // 因此，应当先输出 5，然后再输出 4 。
+    // 最后在到下一个 tick，就是 1 。输出顺序为：“2 3 5 4 1”
+</script>
+
+</html>
