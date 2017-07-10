@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <title>表格效果01</title>
+    <style type="text/css">
+        table{
+            width: 400px;
+            text-align: center;
+            border: 1px solid #ccc;
+            color: #888;
+            margin: 100px auto;
+        }
+        tr{
+                line-height: 2em;
+        }
+        th{
+            border-right: 1px solid #ccc;
+        }
+         th:nth-child(3n){
+            border-right: 0;
+        }
+        td{
+            border-right: 1px solid #ccc;
+        }
+         td:nth-child(3n){
+            border-right: 0;
+        }
+        tr:nth-child(odd){
+            background: rgb(192, 213, 216);
+        }
+         tr:nth-child(even){
+            background: rgb(231, 233, 212);
+        }
+    </style>
+</head>
+<body>
+    <table rules="rows" >
+        <tr>
+            <th>head01</th>
+            <th>head01</th>
+            <th>head01</th>
+        </tr>
+        <tr>
+            <td>content</td>
+            <td>content</td>
+            <td>content</td>
+        </tr>
+        <tr>
+            <td>content</td>
+            <td>content</td>
+            <td>content</td>
+        </tr>
+        <tr>
+            <td>content</td>
+            <td>content</td>
+            <td>content</td>
+        </tr>
+    </table>
+</body>
+</html>
