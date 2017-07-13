@@ -65,6 +65,22 @@
     // 然后，Promise 的 then 应当会放到当前 tick 的最后，但是还是在当前 tick 中。
     // 因此，应当先输出 5，然后再输出 4 。
     // 最后在到下一个 tick，就是 1 。输出顺序为：“2 3 5 4 1”
+
+
+123 .toString();
+// "123"
+parseInt("123");
+// 123
+[12,45,78].toString();
+// "12,45,78"
+false.toString();
+// "false"
+Boolean("false");
+// true
+'' + 10 === '10'
+// true
++'10' === 10;
+// true
 </script>
 
 </html>

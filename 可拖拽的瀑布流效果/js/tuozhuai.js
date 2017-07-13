@@ -78,8 +78,6 @@ window.onload = function() {
                     oNear.index += obj.index;
                     obj.index = oNear.index - obj.index;
                     oNear.index = oNear.index - obj.index;
-
-
                     obj.clientWidth = width2;
                     obj.clientHeight = height2;
 
