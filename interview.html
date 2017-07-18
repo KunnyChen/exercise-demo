@@ -81,6 +81,27 @@ Boolean("false");
 // true
 +'10' === 10;
 // true
+"hello wrold".split(" ");
+// (2) ["hello", "wrold"]
+"hello wrold".split("");
+// (11) ["h", "e", "l", "l", "o", " ", "w", "r", "o", "l", "d"]
+
+
+function a() {
+        console.log('a');
+        return false;
+    }
+
+    function b() {
+        console.log("b");
+        return false;
+    }
+
+    function c() {
+        console.log("c");
+        return false;
+    }
+    console.log(a() || b() && c());  //a b false
 </script>
 
 </html>
