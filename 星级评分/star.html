@@ -129,7 +129,7 @@
         //通过修改样式来显示不同的星级
         $("ul.rating li a").click(function() {
             var title = $(this).attr("title");
-            console.log("您给此商品的评分是：" + title);
+            console.log("您的评分是：" + title);
             var cl = $(this).parent().attr("class");
             $(this).parent().parent().removeClass().addClass("rating " + cl + "star");
             return false;
