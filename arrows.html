@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>箭头效果</title>
+    <style type="text/css">
+        .arrow-outer {
+            position: absolute;
+            height: 24px;
+            width: 60px;
+            overflow: hidden;
+        }
+
+        .arrow-shadow {
+            -webkit-box-shadow: 0 0 10px 0 #AAAAAA;
+            -webkit-transform: rotate(45deg);
+            background: none repeat scroll 0 0 #FFFFFF;
+            height: 40px;
+            left: 15px;
+            position: absolute;
+            top: 16px;
+            width: 40px;
+        }
+
+        .arrow-inner {
+            position: relative;
+            left: 10px;
+            top: 20px;
+            height: 40px;
+            width: 40px;
+            background: #fff;
+            border: 5px solid #ededed;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="arrow-outer">
+        <div class="arrow-shadow">
+        </div>
+    </div>
+    <div class="arrow-inner">
+    </div>
+</body>
+
+</html>

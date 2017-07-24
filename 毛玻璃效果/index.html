@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>毛玻璃效果</title>
+    <style type="text/css">
+        body {
+            background: url("4.jpg") 0 / cover fixed;
+            position: absolute;
+            width: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 2em;
+        }
+
+        main {
+            background: hsla(0, 0%, 100%, .3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            filter: blur(30px);
+            margin: -30px;
+        }
+
+
+        .circular path {
+            fill: none;
+        }
+
+        .circular {
+            width: 30em;
+            height: 30em;
+            margin: 3em auto 0;
+            margin-top: 50px;
+        }
+
+        .circular svg {
+            display: block;
+            overflow: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <blockquote>
+            "The only way to get rid of a temptation[...]"
+            <footer>－
+                <cite>
+                    Oscar Wilde, The Picture of Dorian Gray
+                </cite>
+            </footer>
+        </blockquote>
+    </main>
+
+    <div class="circular">
+        <svg viewBox="0 0 100 100">
+            <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle" />
+            <text>
+                <textPath xlink:href="#circle">
+                    circular reasoning works because because
+                </textPath>
+            </text>
+        </svg>
+    </div>
+</body>
+
+</html>
