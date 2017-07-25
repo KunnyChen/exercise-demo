@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>边框问题</title>
+    <style type="text/css">
+        body {
+            background: rgb(250, 197, 101);
+        }
+
+        .box {
+            width: 20%;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 10%;
+            margin-left: 10%;
+            margin-bottom: 10%;
+        }
+
+        .box1 {
+            border: 10px solid hsla(0, 0%, 100%, 0.2);
+            background-clip: padding-box;
+        }
+
+        .box2 {
+            border: 10px solid #655;
+            outline: 5px solid deeppink;
+        }
+
+        .box3 {
+            border-radius: .8em;
+            box-shadow: 0 0 0 .5em #655;
+            outline: .6em solid #655;
+        }
+
+        .box4 {
+            background: linear-gradient(#fff 50%, #58a 50%);
+            background-size: 100% 25px;
+            display: inline-block;
+        }
+
+        .box5 {
+            background: linear-gradient(to right, /* 或 90deg */
+            #fff 50%, #58a 0);
+            background-size: 25px 100%;
+            display: inline-block;
+        }
+
+        .box6 {
+            background: linear-gradient(45deg, #fff 25%, #58a 0, #58a 50%, #fff 0, #fff 75%, #58a 0);
+            background-size: 30px 30px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 半透明边框 -->
+    <div class="box box1">
+        <span>半透明边框</span>
+    </div>
+    <!-- 多重边框 -->
+    <div class="box box2">
+        <span>多重边框</span>
+    </div>
+    <!-- 边框内圆角 -->
+    <div class="box box3">
+        边框内圆角
+    </div>
+    <!-- 条纹背景 -->
+    <div class="box box4">
+    </div>
+    <!-- 垂直条纹背景 -->
+    <div class="box box5">
+    </div>
+    <!-- 倾斜条纹背景 -->
+    <div class="box box6">
+    </div>
+</body>
+
+</html>
