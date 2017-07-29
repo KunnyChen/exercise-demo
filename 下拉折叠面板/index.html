@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>下拉折叠面板</title>
+    <meta name="referrer" content="never">
+    <meta name="Keywords" content="折叠面板" />
+    <meta name="Description" content="折叠面板" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black, black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <style type="text/css">
+        * { margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+        body { font-family: 'Open Sans', Arial, Helvetica, Sans-serif, Verdana, Tahoma; }
+        a { color: #b63b4d; text-decoration: none; }
+        p { padding: 15px; }
+
+        /** =======================
+         * Contenedor Principal
+         ===========================*/
+        .accordion { width: 100%; }
+        .accordion .link { cursor: pointer; display: block; color: #4D4D4D; font-size: 16px; font-weight: 900; position: relative; -webkit-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; padding: 15px 15px 15px; border-bottom: 1px solid #CCC;; }
+        .accordion li i { position: absolute; top: 16px; left: 12px; font-size: 18px; color: #595959; -webkit-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; }
+        .accordion li i.fa-chevron-right { right: 12px; left: auto; font-size: 16px; }
+        .accordion li.open .right-arrows {transition: all .3s; -webkit-transform: rotate(135deg); -ms-transform: rotate(135deg); -o-transform: rotate(135deg); transform: rotate(135deg); }
+        .right-arrows{transition: all .3s;float: right; display: inline-block;width: 10px;height: 10px;border-top: 2px solid #888;border-right: 2px solid #888;-webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg);transform: rotate(45deg); margin-top: 5px;}
+        /** * Submenu -----------------------------*/
+        .submenu .wrap{ margin: 20px 20px 0 20px;}
+        .submenu { display: none; font-size: 14px; border-bottom: 1px solid #CCC; padding-bottom: 20px;; }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul id="accordion" class="accordion">
+            <li>
+                <div class="link">title01<span class="right-arrows"></span></div>
+                <div class="submenu">
+                    <div class="wrap">显示内容01</div>
+                </div>
+            </li>
+            <li>
+                <div class="link">title02<span class="right-arrows"></span></div>
+                <div class="submenu">
+                    <div class="wrap">显示内容02</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var Accordion = function(el, multiple) {
+                this.el = el || {};
+                this.multiple = multiple || false;
+                var links = this.el.find('.link');
+                links.on('click', {
+                    el: this.el,
+                    multiple: this.multiple
+                }, this.dropdown)
+            }
+            Accordion.prototype.dropdown = function(e) {
+                var $el = e.data.el;
+                $this = $(this),
+                    $next = $this.next();
+                $next.slideToggle();
+                $this.parent().toggleClass('open');
+                if (!e.data.multiple) {
+                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                };
+            }
+            var accordion = new Accordion($('#accordion'), false);
+        });
+    </script>
+</body>
+
+</html>
