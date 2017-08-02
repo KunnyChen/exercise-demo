@@ -217,7 +217,7 @@ img.aligncenter {
 }
 
 #head {
-	background: url(img/home-bg.jpg);
+	/*background: url(img/home-bg.jpg);*/
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	height: 280px;
