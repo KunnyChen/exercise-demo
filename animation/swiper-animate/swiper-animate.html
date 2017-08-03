@@ -11,90 +11,27 @@
     <link rel="stylesheet" type="text/css" href="css/animate.min.css" />
 
     <style>
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
+        html, body { position: relative; height: 100%; }
+        body { background: #eee; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; color: #000; margin: 0; padding: 0; }
+        .swiper-container { width: 100%; height: 100%; }
+        .swiper-slide { text-align: center; font-size: 18px; background: #fff;            /* Center slide text vertically */ display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; }
 
-        body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
-
-        .swiper-container {
-            width: 100%;
-            height: 100%;
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: #fff;
-            /* Center slide text vertically */
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            -webkit-justify-content: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
-            align-items: center;
-        }
         /*音乐播放器部分*/
-
-        #audio_btn {
-            width: 32px;
-            height: 32px;
-            background-size: 100% 100%;
-            background: url(img/music.png) no-repeat;
-            position: absolute;
-            top: 3%;
-            right: 3%;
-            z-index: 4;
-        }
-
-        .rotate {
-            -webkit-animation: rotating 1.5s linear infinite;
-            -moz-animation: rotating 1.5s linear infinite;
-            -o-animation: rotating 1.5s linear infinite;
-            animation: rotating 1.5s linear infinite;
-        }
-
+        #audio_btn { width: 32px; height: 32px; background-size: 100% 100%; background: url(img/music.png) no-repeat; position: absolute; top: 3%; right: 3%; z-index: 4; }
+        .rotate { -webkit-animation: rotating 1.5s linear infinite; -moz-animation: rotating 1.5s linear infinite; -o-animation: rotating 1.5s linear infinite; animation: rotating 1.5s linear infinite; }
         @-webkit-keyframes rotating {
-            from {
-                -webkit-transform: rotate(0)
-            }
-            to {
-                -webkit-transform: rotate(360deg)
-            }
+            from { -webkit-transform: rotate(0) }
+            to { -webkit-transform: rotate(360deg) }
         }
-
         @keyframes rotating {
-            from {
-                transform: rotate(0)
-            }
-            to {
-                transform: rotate(360deg)
-            }
+            from { transform: rotate(0) }
+            to { transform: rotate(360deg) }
+        }
+        @-moz-keyframes rotating {
+            from { -moz-transform: rotate(0) }
+            to { -moz-transform: rotate(360deg) }
         }
 
-        @-moz-keyframes rotating {
-            from {
-                -moz-transform: rotate(0)
-            }
-            to {
-                -moz-transform: rotate(360deg)
-            }
-        }
         /* .dd {
             width: 32px;
             height: 32px;
