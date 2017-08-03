@@ -136,7 +136,7 @@
             </div>
         </div>
         <!-- 如果需要分页器 -->
-        <!-- <div class="swiper-pagination "></div> -->
+        <div class="swiper-pagination "></div>
     </div>
 </body>
 <script type="text/javascript " src="js/jquery-3.2.1.min.js "></script>
@@ -151,14 +151,16 @@
         onSlideChangeEnd: function(swiper) {
             swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
         },
-        autoplay: 4000,
-        pagination: '.swiper-pagination',
-        paginationClickable: true
+        autoplay: 4000,                               //自动切换页面
+        pagination: '.swiper-pagination',       //分页效果
+        autoplayDisableOnInteraction : false, //手滑动之后，页面还是会自动切换
+        paginationClickable: true               //点击对应轮播点切换至当前页面
     })
 </script>
 <script type="text/javascript ">
     var media = document.getElementById("media ");
     $(function(){
+        // 点击音乐图标自身会暂停音乐播放
         $('#audio_btn').click(function(){
             $(this).toggleClass("rotate");
             if($(this).hasClass("rotate")){
