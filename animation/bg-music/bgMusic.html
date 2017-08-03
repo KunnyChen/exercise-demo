@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <title>360°旋转的音乐图标</title>
+</head>
+
+<body>
+    <div id="audio_btn" class="rotate">
+        <audio loop src="1.mp3" id="media" autoplay="" preload=""></audio>
+    </div>
+    <div class="dd"></div>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: aquamarine;
+        }
+        /*  #audio_btn {
+            width: 48px;
+            height: 48px;
+            background: red;
+            margin-top: 5%;
+            margin-left: 45%;
+            background-size: contain;
+            background: url("music.png") no-repeat;
+        } */
+
+        #audio_btn {
+            width: 48px;
+            height: 48px;
+            background-size: contain;
+            background: url(music.png) no-repeat;
+            position: absolute;
+            top: 3%;
+            right: 3%;
+        }
+
+        .rotate {
+            -webkit-animation: rotating 1.5s linear infinite;
+            -moz-animation: rotating 1.5s linear infinite;
+            -o-animation: rotating 1.5s linear infinite;
+            animation: rotating 1.5s linear infinite;
+        }
+
+        @-webkit-keyframes rotating {
+            from {
+                -webkit-transform: rotate(0)
+            }
+            to {
+                -webkit-transform: rotate(360deg)
+            }
+        }
+
+        @keyframes rotating {
+            from {
+                transform: rotate(0)
+            }
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @-moz-keyframes rotating {
+            from {
+                -moz-transform: rotate(0)
+            }
+            to {
+                -moz-transform: rotate(360deg)
+            }
+        }
+
+        .dd {
+            width: 200px;
+            height: 500px;
+            background-color: aqua;
+            margin-top: 60px;
+            margin-left: 30px;
+            background: url("pause.png") no-repeat;
+        }
+    </style>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <!--单击旋转的本身暂停播放、停止-->
+    <script>
+        var media = document.getElementById("media");
+        $(function() {
+            $("#audio_btn").click(function() {
+                    $(this).toggleClass("rotate"); //控制音乐图标 自转或暂停(删除旋转属性)
+                    if ($(this).hasClass("rotate")) { //判断div是否包含指定类名，并指定音乐是否播放
+                        media.play();
+                    } else {
+                         media.pause();
+                    }
+            })
+        });
+    </script>
+    <!--点击其他地方暂停、播放-->
+    <script>
+        var media = document.getElementById("media");
+        $(function() {
+            $(".dd").click(function() {
+                $("#audio_btn").toggleClass("rotate");
+                if ($("#audio_btn").hasClass("rotate")) { //判断div是否包含指定类名，并指定音乐是否播放
+                    media.play();
+                } else {
+                    media.pause();
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
