@@ -2,7 +2,7 @@
  * @Author: KunnyChen
  * @Date:   2017-08-03 15:29:10
  * @Last Modified by:   KunnyChen
- * @Last Modified time: 2017-08-03 15:35:54
+ * @Last Modified time: 2017-08-03 16:43:48
  */
 
 'use strict';
@@ -28,3 +28,32 @@
 //解决方案：通过手势事件播放音乐
 //　(1) 监听body的touchstart事件，回调中播放音乐；缺点：部分元素的touch事件可能会阻止冒泡，需要在对应的地方调起播放音乐函数
 //　(2) 可以增加透明层，点击到透明层，播放音乐，关闭透明层；　缺点：第一次点击按钮元素可能不响应，造成用户体验上的伤害。
+// 3.部分App不支持webview音乐自动播放
+//// 音乐播放
+function autoPlayMusic() {
+    // 自动播放音乐效果，解决浏览器或者APP自动播放问题
+    function musicInBrowserHandler() {
+        musicPlay(true);
+        document.body.removeEventListener('touchstart', musicInBrowserHandler);
+    }
+    document.body.addEventListener('touchstart', musicInBrowserHandler);
+
+    // 自动播放音乐效果，解决微信自动播放问题
+    function musicInWeixinHandler() {
+        musicPlay(true);
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            musicPlay(true);
+        }, false);
+        document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
+    }
+    document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
+}
+function musicPlay(isPlay) {
+    var media = document.querySelector('#bg-music');
+    if (isPlay && media.paused) {
+        media.play();
+    }
+    if (!isPlay && !media.paused) {
+        media.pause();
+    }
+}

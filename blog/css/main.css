@@ -23,6 +23,9 @@ ul {
 }
 
 @media screen and (max-width: 768px) {
+   // .hide{
+   //       display: none;
+   //  }
     #access {
         display: none;
         -webkit-transition: all .5s;
