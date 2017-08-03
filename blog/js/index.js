@@ -1,9 +1,13 @@
-(function () {
-    $(".menu-phone").click(function () {
+(function() {
+    $(".menu-phone").click(function() {
         $(this).addClass("active");
-        $("#access").show();
+        if ($(this).hasClass("active")) {
+            $("#access").show();
+        } else {
+            $("#access").hide();
+        }
     });
-    $("#access").click(function () {
+    $("#access").click(function() {
         $(".menu-phone").removeClass("active");
         $("#access").hide();
     });
