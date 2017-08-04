@@ -486,7 +486,7 @@ h2.search {
 	height: 25px;
 	line-height: 25px;
 	padding: 5px 10px;
-	border: 1px solid #DDD;
+	// border: 1px solid #DDD;
 }
 
 .page-navigator a:hover,
