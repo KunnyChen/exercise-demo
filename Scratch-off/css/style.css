@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.main, body, html { width: 100%; }
+body { margin: 0; padding: 0; background-color: #fff; }
+img { width: 100% }
+.main { height: 100%; text-align: center; }
+.fade-enter-active, .fade-leave-active { -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
+.fade-enter { opacity: 1; -webkit-transform: translate3d(0, 100px, 0); transform: translate3d(0, 100px, 0); }
+.fade-leave-active { opacity: 0; -webkit-transform: translate3d(100px, 0, 0); transform: translate3d(100px, 0, 0); }
+#scratch { position: relative; }
+#cover { position: absolute; top: 0; left: 0; }
+#card { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.description { }
+.title { color: #FD642A; font-size: 14pt; font-weight: 700; padding: 1em 0; }
+.cont { width: 90%; margin-left: 5%; color: #737373; font-size: 10pt; line-height: 1.5em; letter-spacing: 0.1em; text-align: left; }
+.actImg { width: 90%; margin-left: 5%; margin-top: 5%; }
+.readme { text-align: right; width: 95%; }
+.lottery { }
+.read { color: #565656; padding-bottom: 1em; }
+.coating-box { width: 90%; text-align: center; height: 10em; margin-left: 5%; }
+.coating { text-align: center; width: 100%; height: 100%; }
+.readme a { color: #4A90E2; }
+.coating img { width: 100%; height: 100%; margin: 0; }
+.luckyInfo { position: absolute; top: 34%; left: 0; width: 100%; text-align: center; }
+.isLucky { background: #fff; color: #f79f59; padding: .5em 1em; border-radius: 5em; font-size: 14pt; }

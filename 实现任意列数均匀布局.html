@@ -5,39 +5,11 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style type="text/css">
-        .container {
-            width: 400px;
-            margin: 50px auto 0;
-        }
-        .justify {
-            position: relative;
-            width: 100%;
-            text-align: justify;
-            margin-bottom: 20px;
-        }
-        i {
-            width: 24px;
-            line-height: 24px;
-            display: inline-block;
-            text-align: center;
-            background: #ccc;
-            color: white;
-            border-radius: 50%;
-            overflow: hidden;
-            font-style: normal;
-        }
+        .container { width: 400px; margin: 50px auto 0; }
+        .justify { position: relative; width: 100%; text-align: justify; margin-bottom: 20px; }
+        i { width: 24px; line-height: 24px; display: inline-block; text-align: center; background: #ccc; color: white; border-radius: 50%; overflow: hidden; font-style: normal; }
         /*利用伪类实现均匀布局*/
-        .justify::after {
-            content: "";
-            display: inline-block;
-            position: relative;
-            top: -32px;
-            height: 1px;
-            line-height: 0;
-            width: 100%;
-            background: #ccc;
-            z-index: -1;
-        }
+        .justify::after { content: ""; display: inline-block; position: relative; top: -32px; height: 1px; line-height: 0; width: 100%; background: #ccc; z-index: -1; }
     </style>
 </head>
 
