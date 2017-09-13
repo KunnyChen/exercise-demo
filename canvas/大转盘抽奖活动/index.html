@@ -16,7 +16,7 @@
             text-align: center;
             background: yellow;
             border-radius: 100%;
-            cursor: pointer
+            cursor: pointer;
         }
     </style>
 </head>
@@ -27,10 +27,11 @@
 </body>
 <script type="text/javascript">
     let canvas = document.getElementById('canvas'),
-        context = canvas.getContext('2d'),
-        OUTSIDE_RADIUAS = 200, // 转盘的半径
-        INSIDE_RADIUAS = 0, // 用于非零环绕原则的内圆半径
-        TEXT_RADIUAS = 160, // 转盘内文字的半径
+        context = canvas.getContext('2d',)
+
+        OUNTSIDE_RADIUAS = 200, // 转盘的半径
+        INSIDE_RADIUAS = 0,// 用于非零环绕原则的内圆半径
+        TEXT_RADIUAS = 160,// 转盘内文字的半径
         CENTER_X = canvas.width / 2,
         CENTER_Y = canvas.height / 2,
         awards = [ // 转盘内的奖品个数以及内容
